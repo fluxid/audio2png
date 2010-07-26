@@ -1,0 +1,31 @@
+Generates waveform images from audio file.
+Requires pyffmpeg (beta version, available on GitHub), numpy and PIL.
+
+Supports:
+- Waveform view with left and right channels
+- Waveform view with maximum and minimum level of all averaged channels
+- Antialiasing (oversampling)
+In rendered_examples directory you'll find rendered images using this script.
+
+Will support:
+- Spectral view
+
+Won't support:
+- Colors
+
+Drawbacks:
+- Needs to read whole audio file at least twice
+
+TODO:
+- Document the code (docstrings, comments)
+- Implement spectral view
+- Create nice command line utility
+
+About rendered examples:
+Track is "Unsquare Dance" by Dave Brubeck.
+unsquare1* are stereo waveforms: above is left channel, below is right channel (absolute maximal levels).
+unsquare2* are mono waveforms: above are maximum levels, and below minimum.
+Files without sufix are normal waveforms with no filtering.
+Files with "_aa" suffix are antialiased: It's almost the same as rendering waveform with width 20 times larger than intended, and downscaling it with bilinear filtering.
+Files with "_avg" suffix are "averaged": it's roughly the same as antialiased but with applied contrast.
+Files with "_hyb" suffix are "hybrid": a little averaged first, and then antialiased...
